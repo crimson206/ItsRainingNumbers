@@ -57,7 +57,7 @@ namespace Tests
             double xPosition = 40;
             IRainingNumber rainingNumber = new RainingNumber(1, 5, 40);
 
-            double[] expectedPositions = new double[] { 1, 6, 11, 16 };
+            double[] expectedPositions = new double[] { 6, 11, 16, 21 };
 
             foreach(double position in expectedPositions)
             {
