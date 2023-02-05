@@ -1,2 +1,6 @@
-obj/
-bin/
+/src/ClassLib/obj
+/.vs
+/src/ClassLibrary1/obj
+/src/WpfApp/obj
+/Tests/obj
+/Tests/bin
