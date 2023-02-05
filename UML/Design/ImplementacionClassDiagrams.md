@@ -47,17 +47,25 @@ class DataCenter{
 }
 
 
-class GameTimer{
+class MoveTimer{
     -Timer Timer
-    +double StartInterval
-    +double MinimumInterval
+    +RegisterMoveMethod(Delegate gameMoveMethod)
+    +double Interval
+    +StartTimer()
+    +StopTimer()
+}
+
+class NumberCallTimer{
+    -Timer Timer
+    +double[] Intervals
     +double Interval
     +double TimeLeft
-    +double ShortenInterval(double value)
+    +ChangeInterval(Random rnd)
+    +ChangeInterval(int index)
     +StartTimer()
-    +AddMoveToInterval(Delegate gameMoveMethod)
-    +AddTouchedGuardLineEvent(Event gameTurnGameOverMethod)
+    +StopTimer()
 }
+
 
 class GuardLine{
     +int GuardLinePosition
@@ -81,7 +89,7 @@ class WPFDisplayer{
     +ClearGameOver()
     +AddScoreRecordObj(ScoreRecord scoreRecord)
     +ClearNumbers()
-    +AddTimerObj(GameTimer timer)
+    +AddTimerObj(NumberCallTimer timer)
     +AddGuardLineObj(GuardLine guardLine)
 }
 
@@ -90,17 +98,18 @@ WPF --> WPFDisplayer
 WPFUI --> Game
 WPFDisplayer --> DataCenter
 Game *-- DataCenter
-Game --> NumberManager
-Game --> GameTimer
-GameTimer --> Game
+Game --> NumberCallTimer
+NumberCallTimer --> Game
 Game --> ScoreRecord
 Game --> Solver
+Game --> MoveTimer
+MoveTimer --> NumberManager
 Solver --> NumberManager
 NumberManager "1" *--> "*" RainingNumber
 ScoreRecord "1" *--> "*" Score
 DataCenter --> GuardLine
 DataCenter --> ScoreRecord
-DataCenter --> GameTimer
+DataCenter --> NumberCallTimer
 DataCenter --> NumberManager
 
 ```
