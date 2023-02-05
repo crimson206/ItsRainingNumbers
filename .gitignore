@@ -4,3 +4,5 @@
 /src/WpfApp/obj
 /Tests/obj
 /Tests/bin
+/src/ClassLibrary1/bin/Debug/net6.0
+/src/WpfApp/bin/Debug/net6.0-windows
