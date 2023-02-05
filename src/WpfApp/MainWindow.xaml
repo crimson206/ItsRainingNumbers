@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="500" Width="830">
+    <StackPanel Orientation="Horizontal">
+        <Grid Name="GameGrid" Background="AliceBlue" Width="500">
+            <Canvas Name="PlayCanvas"></Canvas>
+        </Grid>
+        <Grid x:Name="RecordGrid" Background="Gray" Width="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="79"/>
+                <RowDefinition Height="271"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <DockPanel Margin="20,30,20,14" Grid.Row="0" Background="White" Height="30">
+                <TextBlock TextAlignment="Left" FontSize="20"><Run Text="Name"/></TextBlock>
+                <TextBlock TextAlignment="Right" FontSize="20"><Run Text="Score"/></TextBlock>
+            </DockPanel>
+            <StackPanel x:Name="ScoreStackPanel" Margin="20,10,20,16" Grid.Row="1" Background="White" Height="270">
+            </StackPanel>
+            <TextBox Name="AnswerTextBox" Margin="20,15,20,0" Grid.Row="2" FontSize="20" Height="50"
+                     KeyDown="AnswerTextBox_KeyDown">
+                "Enter The Answer"
+            </TextBox>
+        </Grid>
+    </StackPanel>
 </Window>
